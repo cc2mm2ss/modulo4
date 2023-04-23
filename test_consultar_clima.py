@@ -1,17 +1,8 @@
-import requests
+import subprocess
 
-ciudad = "Buenos Aires"
-clave_api = "d3a0dc6559b5876cb562b3568c100971"
-url = f"https://api.openweathermap.org/data/2.5/weather?q={ciudad}&appid={clave_api}&units=metric"
-
-respuesta = requests.get(url)
-
-datos = respuesta.json()
-
-temperatura = datos["main"]["temp"]
-sensacion_termica = datos["main"]["feels_like"]
-descripcion = datos["weather"][0]["description"]
-
-def test_answer():
-    assert temperatura >= 0
-    assert sensacion_termica >= 0
+def test_python_command_execution():
+    result = subprocess.run(["python", "consultar_clima.py"], capture_output=True, text=True)
+    exit_code = result.returncode
+    
+    # Verifica que el código de salida sea 0
+    assert exit_code == 0, f"El código de salida fue {exit_code}. Se esperaba 0."
