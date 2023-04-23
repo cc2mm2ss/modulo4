@@ -27,4 +27,4 @@ jobs:
                 # pytest -v –-cov=calculator
                 pytest –-junitxml=test-results/junit.xml
           - store_test_results:
-            path: test-results
+              path: test-results
