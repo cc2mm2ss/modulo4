@@ -15,4 +15,3 @@ descripcion = datos["weather"][0]["description"]
 print(f"El tiempo en {ciudad} es {descripcion}")
 print(f"La temperatura es de {temperatura}°C")
 print(f"La sensación térmica de {sensacion_termica}°C")
-
