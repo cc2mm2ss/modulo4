@@ -1,5 +1,6 @@
 import requests
 import mysql.connector
+import datetime
 
 try:
     cnx = mysql.connector.connect(user='admin', password='mmodulo7',
@@ -12,11 +13,9 @@ except mysql.connector.Error as err:
     print("Database does not exist")
   else:
     print(err)
-else:
-  cnx.close()
 
 # Creación del cursor
-cursor = conexion.cursor()
+cursor = cnx.cursor()
 
 # Ejecución de la consulta
 cursor.execute("SELECT CIUDAD FROM parametros")
